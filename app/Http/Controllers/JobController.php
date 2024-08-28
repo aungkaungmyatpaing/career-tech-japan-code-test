@@ -7,14 +7,30 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    public function __construct(private readonly Applicant $applicant)
+    // public function __construct(private readonly Applicant $applicant)
+    // {
+    // }
+
+    // public function apply(Request $request)
+    // {
+    //     $data = $this->applicant->applyJob();
+
+    //     return response()->json([
+    //         'data' => $data
+    //     ]);
+    // }
+
+    private Applicant $applicant;
+
+    public function __construct(Applicant $applicant)
     {
+        $this->applicant = $applicant;
     }
-    
+
     public function apply(Request $request)
     {
         $data = $this->applicant->applyJob();
-        
+
         return response()->json([
             'data' => $data
         ]);

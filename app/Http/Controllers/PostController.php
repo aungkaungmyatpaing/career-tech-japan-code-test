@@ -111,7 +111,7 @@ class PostController extends Controller
 
             if ($existingReaction) {
                 $existingReaction->delete();
-                return $this->success("Like removed successfully");
+                return $this->success("Post unliked successfully");
             } else {
                 $post->likes()->create([
                     'user_id' => $user->id,
